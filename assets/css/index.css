@@ -13,8 +13,13 @@
   --brand-green-light: hsla(148, 23%, 89%, 1);
   --brand-beige: hsla(39, 100%, 97%, 1);
 
+  --bg-green-light: hsla(180, 14%, 97%, 1);
   --nav-height: 7.2rem;
   font-size: 62.5%;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -23,8 +28,12 @@ body {
   height: 100%;
 }
 
-header {
-  margin-top: calc(4.1rem + var(--nav-height));
+section {
+  padding-block: 10rem;
+}
+
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
 }
 
 body {
@@ -33,6 +42,7 @@ body {
   text-align: center;
 
   overflow: overlay;
+  background-color: var(--bg-green-light);
 }
 
 h1 {
@@ -44,6 +54,12 @@ h1 {
   margin-bottom: 2.4rem;
 }
 
+h2 {
+  color: var(--headline);
+  font-size: 3rem;
+  line-height: 3.9rem;
+}
+
 h3 {
   font-weight: 700;
 }
@@ -52,20 +68,20 @@ h4 {
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--brand-green);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.08rem;
   line-height: 150%;
 
   margin-bottom: 1.6rem;
 }
 
-header > img {
+section img {
   width: 26.4rem;
   display: block;
   margin-inline: auto;
   object-position: 0 2rem;
 }
 
-header::before {
+#home::before {
   content: '';
   width: 100%;
   height: calc(108rem + var(--nav-height));
@@ -84,12 +100,12 @@ p {
   color: var(--paragraph);
   line-height: 150%;
 }
-header > p {
+#home .content p {
   margin-bottom: 3.2rem;
   font-size: 1.8rem;
 }
 
-header > button {
+#home button {
   text-transform: uppercase;
   color: #ffffff;
   font-size: 1.4rem;
@@ -155,8 +171,8 @@ nav {
 
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  z-index: 100;
+  width: 100vw;
 }
 
 ul {
@@ -171,10 +187,9 @@ nav .wrapper {
 
 nav.scroll {
   background-color: var(--brand-green);
-  width: 100vw;
 }
 
-nav.scroll svg:nth-child(1) path {
+nav.scroll .logo path {
   fill: white;
 }
 
@@ -204,6 +219,9 @@ body.menu-expanded .menu {
   width: 100vw;
   height: 100vh;
 
+  transition: transform 800ms;
+  transform: translateX(0);
+
   padding-top: var(--nav-height);
 }
 
@@ -212,11 +230,7 @@ body.menu-expanded {
 }
 
 body.menu-expanded > :not(nav) {
-  display: none;
-}
-
-body.menu-expanded nav {
-  position: relative;
+  display: hidden;
 }
 
 .menu ul:nth-child(1) {
@@ -280,4 +294,50 @@ nav button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services h4 {
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+#services h2 {
+  margin-bottom: 6rem;
+}
+
+#services .card {
+  padding: 2.4rem;
+  text-align: left;
+  background-color: white;
+  border: 0.1rem solid var(--brand-green-light);
+
+  border-radius: 0.6rem;
+}
+
+#services .card h3 {
+  margin-block: 1.6rem;
+}
+
+#about {
+  text-align: left;
+  background-color: var(--brand-beige);
+}
+
+#about header h4 {
+  text-transform: uppercase;
+  padding-bottom: 1.6rem;
+}
+
+#about header h2 {
+  padding-bottom: 2.4rem;
+}
+
+#about .content p {
+  padding-bottom: 6rem;
 }
