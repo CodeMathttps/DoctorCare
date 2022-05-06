@@ -30,6 +30,7 @@ body {
 
 section {
   padding-block: 10rem;
+  min-width: 37.5rem;
 }
 
 #home {
